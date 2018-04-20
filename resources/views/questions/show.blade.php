@@ -47,8 +47,8 @@
 						 	<h4>{{ $question->name }}</h4>
 						</div>
 
-						<div class="questionBody">
-						 	{{ $question->body }}
+						<div class="">
+						 	<?= $question->body ?>
 						</div>
 
 						<div>
@@ -124,6 +124,29 @@
 				    <p class="card-text">{{$answer->body}} by {{$answer->user->name}} at  {{$answer->created_at}}</p>
 				  </div>
 				</div>
+
+				@foreach ($answer->comments as $comment)
+				  	<div class="card mb-1 text-white bg-secondary">
+					  <div class="card-body">
+					    <p class="card-text">{{$comment->body}} by {{$comment->user->name}} at  {{$comment->created_at}}</p>
+					  </div>
+					</div>
+		  		@endforeach
+
+		  		<div class="row">
+					<form action="/{{$question->company_id}}/answer/comment" method="POST">
+						{{csrf_field()}}
+						<input type="hidden" name="answer_id" value={{$answer->id}}>
+
+					    <div class="form-group">
+					      <input name='body' type="text" class="form-control"  placeholder="Add comment to answer..">
+					    </div>
+
+					    <button type="submit" class="btn btn-primary">Add comment to answer</button>
+
+					</form>
+				</div>
+
 		  @endforeach
 
 		 </div>
@@ -142,6 +165,8 @@
 		  </form>
 
 		   </div>
+
+
 
 
 		</div>

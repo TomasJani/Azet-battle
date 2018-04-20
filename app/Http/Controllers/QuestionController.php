@@ -57,7 +57,7 @@ class QuestionController extends Controller
 
         $question->save();
 
-        return redirect(auth()->user()->company_id.'company/');
+        return redirect(auth()->user()->company_id.'/company');
     }
 
     /**
