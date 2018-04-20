@@ -38,6 +38,10 @@ Route::post('{company}/question', 'QuestionController@store');
 Route::post('{company}/answers', 'AnswerController@store');
 Route::delete('{company}/answers/delete/{answers}', 'AnswerController@destroy');
 
+//Rating Routes
+Route::patch('{company}/question/{question}/like', 'QuestionController@like');
+Route::patch('{company}/question/{question}/dislike', 'QuestionController@dislike');
+
 
 
 

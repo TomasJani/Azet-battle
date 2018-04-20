@@ -124,4 +124,20 @@ class QuestionController extends Controller
             Question::destroy($id);
         }
     }
+
+      public function like($company,Question $question)
+    {
+        $question->rating += 1;
+        $question->save();
+
+        return view("questions.show",compact("question"));
+    }
+
+     public function dislike($company,Question $question)
+    {
+        $question->rating -= 1;
+        $question->save();
+
+        return view("questions.show",compact("question"));
+    }
 }

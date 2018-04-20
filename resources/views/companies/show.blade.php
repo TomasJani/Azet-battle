@@ -9,6 +9,7 @@
 			</div>
 
 			<h2 class="heading">{{auth()->user()->company->name}}</h2>
+
 			<hr>
 				<form action="/{{auth()->user()->company->id}}/company/search" method="GET">
 					{{ csrf_field() }}

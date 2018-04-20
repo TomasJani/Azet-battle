@@ -3,22 +3,63 @@
 @section("content")
 	<div class="container">
 		<div class="row">
-			<div class="question col-md-10">
+			<div class="questionarea col-md-10">
 				<h2 class="heading">{{auth()->user()->company->name}}</h2>
 				<hr>
 
-					<div class="questionName">
-					 	<h4>{{ $question->name }}</h4>
+				<div class="row">
+
+					<div class="col-md-1 rating">
+							<div class="like">
+								<form action="/{{auth()->user()->company->id}}/question/{{$question->id}}/like" method="POST">
+									{{csrf_field()}}
+									{{method_field("PATCH")}}
+
+									<button class="btn btn-primary" type="submit">
+										<i class="fas fa-arrow-up"></i>
+									</button>
+
+								</form>
+
+
+							</div>
+
+							<div class="r">
+								{{ $question->rating }}
+							</div>
+
+							<div class="dislike">
+								<form action="/{{auth()->user()->company->id}}/question/{{$question->id}}/dislike" method="POST">
+									{{csrf_field()}}
+									{{method_field("PATCH")}}
+
+									<button type="submit" class="btn btn-primary">
+										<i class="fas fa-arrow-down"></i>
+									</button>
+
+								</form>
+							</div>
 					</div>
 
-					<div class="questionBody">
-					 	{{ $question->body }}
+					<div class="col-md-11 question">
+
+
+						<div class="questionName">
+						 	<h4>{{ $question->name }}</h4>
+						</div>
+
+						<div class="questionBody">
+						 	{{ $question->body }}
+						</div>
+
+						<div>
+								<p><small>{{$question->created_at}}</small></p>
+								<p><small>{{$question->user->name}}</small></p>
+						</div>
+
 					</div>
 
-					<div>
-							<p><small>{{$question->created_at}}</small></p>
-							<p><small>{{$question->user->name}}</small></p>
-					</div>
+				</div>
 
 			</div>
 		</div>
