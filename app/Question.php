@@ -29,4 +29,10 @@ class Question extends Model
     {
         return $this->morphMany('App\Comment', 'commentable');
     }
+
+    public function scopeSearch($query,$s)
+    {
+        return $query->where("name","like","%".$s."%")
+                ->orWhere("body","like","%".$s."%");
+    }
 }
