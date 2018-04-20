@@ -45,7 +45,16 @@
 
 						<div class="row">
 							<div class="col-md-8">
-								<span class="tag"><small>PHP</small></span> <span class="tag"><small>CSS</small></span> <span class="tag"><small>JS</small></span>
+								<?php
+									$string = trim($question->tags);
+        							$tags = explode(",",$string);
+        						?>
+
+        						@foreach ($tags as $tag)
+        							<span class="tag">{{$tag}}</span>
+        						@endforeach
+
+
 							</div>
 							<div class="col-md-4 name">
 								<p><small>{{$question->created_at}}</small></p>

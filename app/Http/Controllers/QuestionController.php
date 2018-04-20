@@ -71,7 +71,7 @@ class QuestionController extends Controller
         $question->views += 1;
         $question->save();
 
-        return view("questions.show",compact("question"));
+        return view("questions.show",compact('question'));
     }
 
     /**
@@ -94,7 +94,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $company, Question $question)
     {
-         if (auth()->user()->id() === $question->user_id){
+         if (auth()->user()->id === $question->user_id){
 
             $this->validate(request(), [
                 'name' => 'required|min:3|max:50',
