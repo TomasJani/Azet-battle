@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company;
 
 class CompanyController extends Controller
 {
@@ -10,7 +11,7 @@ class CompanyController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('employee')->except(['store', 'login']);
+        $this->middleware('employee')->except(['store', 'login', 'create']);
     }
 
 	public function create()
@@ -18,7 +19,7 @@ class CompanyController extends Controller
 		return view('companies.create');
 	}
 
-    public function store()
+    public function store(Request $request)
     {
     	$this->validate(request(), [
             'name' => 'required|min:3'
@@ -26,10 +27,14 @@ class CompanyController extends Controller
 
         $company = new Company;
 
-        $company->user_id = auth()->user()->id();
-        $company->name = request("body");
+        $company->user_id = auth()->user()->id;
+        $company->name = request('name');
         $company->unique_key = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(15/strlen($x)))), 1, 15);
         $company->save();
+
+        $user = auth()->user();
+        $user->company_id = $company->id;
+        $user->save();
 
         return redirect()->back();
     }
