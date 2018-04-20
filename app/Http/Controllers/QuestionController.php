@@ -108,7 +108,7 @@ class QuestionController extends Controller
 
             $question->save();
 
-            return redirect('company/'.auth()->user()->company_id);
+            return redirect(auth()->user()->company_id.'/company');
         }
     }
 
@@ -120,8 +120,26 @@ class QuestionController extends Controller
      */
     public function destroy($company,Question $question)
     {
-         if (auth()->user()->id() === $question->user_id){
-            Question::destroy($id);
+         if (auth()->user()->id === $question->user_id){
+            Question::destroy($question->id);
         }
+
+       return redirect(auth()->user()->company_id.'/company');
+    }
+
+      public function like($company,Question $question)
+    {
+        $question->rating += 1;
+        $question->save();
+
+        return view("questions.show",compact("question"));
+    }
+
+     public function dislike($company,Question $question)
+    {
+        $question->rating -= 1;
+        $question->save();
+
+        return view("questions.show",compact("question"));
     }
 }

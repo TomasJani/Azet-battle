@@ -30,13 +30,18 @@ Route::post('{company}/question/create', 'QuestionController@store');
 Route::get('{company}/question/{question}', 'QuestionController@show');
 Route::get('{company}/question/{question}/edit', 'QuestionController@edit');
 Route::patch('{company}/question/{question}', 'QuestionController@update');
-Route::delete('{company}/question/{question}', 'QuestionController@destroy');
+
+Route::delete('{company}/question/{question}/delete', 'QuestionController@destroy');
 
 Route::post('{company}/question', 'QuestionController@store');
 
 //Answer Routes
 Route::post('{company}/answers', 'AnswerController@store');
 Route::delete('{company}/answers/delete/{answers}', 'AnswerController@destroy');
+
+//Rating Routes
+Route::patch('{company}/question/{question}/like', 'QuestionController@like');
+Route::patch('{company}/question/{question}/dislike', 'QuestionController@dislike');
 
 
 
