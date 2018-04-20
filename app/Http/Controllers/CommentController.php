@@ -13,7 +13,7 @@ class CommentController extends Controller
         $this->middleware('employee');
     }
 
-    public function storeQuestion($company, Request $request)
+    public function storeQuestion(Request $request, $company)
     {
         $comment = new Comment;
         $comment->user_id = auth()->user()->id;
@@ -26,7 +26,7 @@ class CommentController extends Controller
         return redirect()->back();
     }
 
-    public function storeAnswer($company, Request $request)
+    public function storeAnswer(Request $request, $company)
     {
         $comment = new Comment;
         $comment->user_id = auth()->user()->id;

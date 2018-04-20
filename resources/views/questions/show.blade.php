@@ -25,7 +25,7 @@
 				@foreach ($question->comments as $comment)
 					<div class="card mb-1 text-white bg-secondary">
 					  <div class="card-body">
-					    <p class="card-text">{{$comment->body}}</p>
+					    <p class="card-text">{{$comment->body}} by {{$comment->user->name}}</p>
 					  </div>
 					</div>
 				@endforeach
@@ -40,8 +40,9 @@
 				<input type="hidden" name="question_id" value={{$question->id}}>
 
 			    <div class="form-group">
-			      <input name='body' type="text" class="form-control"  placeholder="Add question..">
+			      <input name='body' type="text" class="form-control"  placeholder="Add comment..">
 			    </div>
+
 			    <button type="submit" class="btn btn-primary">Add comment</button>
 
 			</form>
@@ -56,7 +57,7 @@
 			@foreach ($question->answers as $answer)
 			  	<div class="card mb-1 text-white bg-secondary">
 				  <div class="card-body">
-				    <p class="card-text">{{$answer->body}}</p>
+				    <p class="card-text">{{$answer->body}} by {{$answer->user->name}} </p>
 				  </div>
 				</div>
 		  @endforeach
