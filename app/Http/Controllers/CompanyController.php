@@ -58,7 +58,7 @@ class CompanyController extends Controller
         $company = Company::find($company);
         $questions = Question::where('company_id', '=', $company->id)->get();
 
-        return view('company.show', compact('questions'));
+        return view('companies.show', compact('questions'));
     }
 
     public function edit()
