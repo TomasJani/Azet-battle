@@ -48,7 +48,7 @@ class AnswerController extends Controller
 
         $answer = new Answer;
 
-        $answer->user_id = auth()->user()->id();
+        $answer->user_id = auth()->user()->id;
         $answer->question_id = request("question_id");
         $answer->body = request("body");
         $answer->save();

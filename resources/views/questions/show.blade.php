@@ -7,6 +7,9 @@
 				<h2 class="heading">{{auth()->user()->company->name}}</h2>
 				<hr>
 
+					<div class="questionName">
+					 	<h4>{{ $question->name }}</h4>
+					</div>
 
 					<div class="questionBody">
 					 	{{ $question->body }}
@@ -25,7 +28,8 @@
 				@foreach ($question->comments as $comment)
 					<div class="card mb-1 text-white bg-secondary">
 					  <div class="card-body">
-					    <p class="card-text">{{$comment->body}} by {{$comment->user->name}}</p>
+					    <p class="card-text">{{$comment->body}}</p>
+					    <p class="card-text"> by {{$comment->user->name}} at {{$comment->created_at}}</p>
 					  </div>
 					</div>
 				@endforeach
@@ -57,7 +61,7 @@
 			@foreach ($question->answers as $answer)
 			  	<div class="card mb-1 text-white bg-secondary">
 				  <div class="card-body">
-				    <p class="card-text">{{$answer->body}} by {{$answer->user->name}} </p>
+				    <p class="card-text">{{$answer->body}} by {{$answer->user->name}} at  {{$answer->created_at}}</p>
 				  </div>
 				</div>
 		  @endforeach

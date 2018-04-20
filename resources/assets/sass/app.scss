@@ -12,3 +12,35 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+html {
+  font-size: 14px
+}
+
+body{
+	margin-top: 60px;
+}
+
+#nav {
+
+	background: #4568DC !important;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #B06AB3, #4568DC) !important;
+	background: linear-gradient(to left, #B06AB3, #4568DC) !important;
+	padding-left: 150px !important;
+	padding-right: 150px !important;
+
+	.navbar-brand {
+		color: white;
+		font-size: 25px;
+		font-weight: bolder;
+	}
+}
+
+
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}

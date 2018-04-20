@@ -78,4 +78,16 @@ class CompanyController extends Controller
         return redirect()->back();
     }
 
+     public function search(Request $request,$company)
+    {
+        $sear= request("search");
+
+        $company = Company::find($company);
+        $questions = Question::where('company_id', '=', $company->id)
+                            ->search($sear)
+                            ->get();
+
+        return view('company.show', compact('questions'));
+    }
+
 }

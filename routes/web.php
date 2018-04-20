@@ -16,6 +16,8 @@ Route::get('{company}/company', 'CompanyController@show');
 Route::get('{company}/edit', 'CompanyController@edit');
 Route::patch('{company}/update', 'CompanyController@update');
 
+Route::get('{company}/company/search', 'CompanyController@search');
+
 //Comment Routes
 Route::post('{company}/question/comment', 'CommentController@storeQuestion');
 Route::post('{company}/answer/comment', 'CommentController@storeAnswer');
