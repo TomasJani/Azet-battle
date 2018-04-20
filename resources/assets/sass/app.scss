@@ -21,6 +21,48 @@ body{
 	margin-top: 60px;
 }
 
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.square {
+	margin: 7px;
+	padding: 4px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: rgba(69,104,220, .07);
+	p {
+		margin: 0px;
+		font-size: 18px;
+	}
+}
+
+.tag {
+	padding: 5px;
+	background-color: rgba(69,104,220, .18);
+	color: rgb(69,104,220);
+	border-radius: 3px;
+}
+
+.name {
+	p {
+		margin: 0px;
+	}
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #4568DC;
+    margin: .5em 0;
+    padding: 0;
+    border-radius: 5px;
+}
+
+
 #nav {
 
 	background: #4568DC !important;  /* fallback for old browsers */
@@ -62,11 +104,22 @@ input[type="color"]:focus,
 	color: white;
 }
 
-
-
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.btn:focus {
+	border-color: rgba(69,104,220, 0.8);
+  	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(69,104,220, 0.6);
+  	outline: 0 none;
 }
+
+.questionBody {
+	font-size: 13px;
+	height: 130px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 15px;
+}
+
+.companyName {
+	color: #4568DC;
+	font-weight: bolder;
+}
+
