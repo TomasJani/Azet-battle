@@ -88,7 +88,7 @@ class CompanyController extends Controller
                             ->search($sear)
                             ->get();
 
-        return view('company.show', compact('questions'));
+        return view('companies.show', compact('questions'));
     }
 
 }

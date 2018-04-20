@@ -7,6 +7,12 @@
 
 			<h2 class="heading">{{auth()->user()->company->name}}</h2>
 			<hr>
+				<form action="/{{auth()->user()->company->id}}/company/search" method="GET">
+					{{ csrf_field() }}
+					<input type="text" name="search" placeholder="Search Question...">
+					<button type="submit" class="btn btn-primary">Search</button>
+				</form>
+			<hr>
 
 			@foreach ($questions as $question)
 				<div class="row question">

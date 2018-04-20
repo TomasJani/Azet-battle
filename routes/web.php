@@ -32,8 +32,6 @@ Route::get('{company}/question/{question}/edit', 'QuestionController@edit');
 Route::patch('{company}/question/{question}', 'QuestionController@update');
 Route::delete('{company}/question/{question}', 'QuestionController@destroy');
 
-Route::get('{company}/question/{question}/search', 'QuestionController@search');
-
 Route::post('{company}/question', 'QuestionController@store');
 
 //Answer Routes
