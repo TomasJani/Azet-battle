@@ -5,6 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Company;
+use App\Question;
+use App\Answer;
+use App\Comment;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +31,23 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
