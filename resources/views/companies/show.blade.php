@@ -4,6 +4,9 @@
 
 	<div class="container">
 		<div class="col-md-10 question">
+			<div class="row">
+
+			</div>
 
 			<h2 class="heading">{{auth()->user()->company->name}}</h2>
 			<hr>
@@ -19,16 +22,16 @@
 
 					<div class="col-md-2">
 						<div class="square">
-							<p>21027</p>
-							<small>votes</small>
+							<p>{{$question->rating}}</p>
+							<small>rating</small>
 						</div>
 						<div class="square">
-							<p>21</p>
+							<p>{{count($question->answers)}}</p>
 							<small>answers</small>
 						</div>
 						<div class="square">
-							<p>1.2</p>
-							<small>mil views</small>
+							<p>{{$question->views}}</p>
+							<small>views</small>
 						</div>
 					</div>
 

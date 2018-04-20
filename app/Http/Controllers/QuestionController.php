@@ -68,6 +68,9 @@ class QuestionController extends Controller
      */
     public function show($company,Question $question)
     {
+        $question->views += 1;
+        $question->save();
+
         return view("questions.show",compact("question"));
     }
 
