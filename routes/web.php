@@ -8,6 +8,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::get('company', 'CompanyController@create');
 Route::patch('company', 'CompanyController@store');
 Route::get('{company}/company', 'CompanyController@show');
@@ -29,7 +30,3 @@ Route::delete('{company}/question/{question}', 'QuestionController@destroy');
 Route::get('{company}/question/{question}/search', 'QuestionController@search');
 
 Route::post('{company}/question', 'QuestionController@store');
-
-
-
-
