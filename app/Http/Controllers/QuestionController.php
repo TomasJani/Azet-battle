@@ -42,11 +42,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request, $company)
     {
-        $this->validate(request(), [
-            'name' => 'required|min:3|max:50',
-            'body' => 'required|min:5',
-            'tags' => 'required'
-        ]);
+
 
         $question = new Question;
         $question->user_id = auth()->user()->id;
@@ -96,11 +92,6 @@ class QuestionController extends Controller
     {
          if (auth()->user()->id === $question->user_id){
 
-            $this->validate(request(), [
-                'name' => 'required|min:3|max:50',
-                'body' => 'required|min:5',
-                'tags' => 'required'
-            ]);
 
             $question->name = request('name');
             $question->body = request('body');
