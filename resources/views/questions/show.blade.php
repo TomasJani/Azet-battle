@@ -41,8 +41,7 @@
 							</div>
 					</div>
 
-					<div class="col-md-11 question">
-
+					<div class="col-md-9 question">
 
 						<div class="questionName">
 						 	<h4>{{ $question->name }}</h4>
@@ -57,6 +56,26 @@
 								<p><small>{{$question->user->name}}</small></p>
 						</div>
 
+					</div>
+
+					<div class="col-md-2 controls">
+						<div class="row">
+							<div class="col-md-6">
+								<form action="/{{auth()->user()->company->id}}/question/{{ $question->id }}/edit" method="GET">
+									{{csrf_field()}}
+									<button type="submit" class="btn btn-primary">Edit</button>
+								</form>
+							</div>
+
+							<div class="col-md-6">
+								<form action="/{{auth()->user()->company->id}}/question/{{ $question->id }}/delete" method="POST">
+									{{ csrf_field() }}
+									{{ method_field("DELETE") }}
+									<button type="submit" class="btn btn-danger">Delete</button>
+								</form>
+							</div>
+
+						</div>
 					</div>
 
 				</div>

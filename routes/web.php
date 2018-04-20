@@ -30,7 +30,8 @@ Route::post('{company}/question/create', 'QuestionController@store');
 Route::get('{company}/question/{question}', 'QuestionController@show');
 Route::get('{company}/question/{question}/edit', 'QuestionController@edit');
 Route::patch('{company}/question/{question}', 'QuestionController@update');
-Route::delete('{company}/question/{question}', 'QuestionController@destroy');
+
+Route::delete('{company}/question/{question}/delete', 'QuestionController@destroy');
 
 Route::post('{company}/question', 'QuestionController@store');
 
