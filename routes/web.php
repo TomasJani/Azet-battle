@@ -25,6 +25,8 @@ Route::patch('{company}/comment/edit', 'CommentController@storeAnswer');
 Route::delete('{company}/comment/delete/{comment}', 'QuestionController@destroy');
 
 //Question Routes
+Route::get('{company}/question', 'QuestionController@create');
+Route::post('{company}/question/create', 'QuestionController@store');
 Route::get('{company}/question/{question}', 'QuestionController@show');
 Route::get('{company}/question/{question}/edit', 'QuestionController@edit');
 Route::patch('{company}/question/{question}', 'QuestionController@update');
