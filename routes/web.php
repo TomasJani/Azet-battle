@@ -15,15 +15,15 @@ Route::get('{company}/company', 'CompanyController@show');
 Route::get('{company}/edit', 'CompanyController@edit');
 Route::patch('{company}/update', 'CompanyController@update');
 
+//Comment Routes
 Route::post('{company}/question/comment', 'CommentController@storeQuestion');
 Route::post('{company}/answer/comment', 'CommentController@storeAnswer');
 Route::patch('{company}/comment/edit', 'CommentController@storeAnswer');
 Route::delete('{company}/comment/delete/{comment}', 'QuestionController@destroy');
 
-
 //Question Routes
 Route::get('{company}/question/{question}', 'QuestionController@show');
-Route::get('{company}/question/{question}', 'QuestionController@edit');
+Route::get('{company}/question/{question}/edit', 'QuestionController@edit');
 Route::patch('{company}/question/{question}', 'QuestionController@update');
 Route::delete('{company}/question/{question}', 'QuestionController@destroy');
 

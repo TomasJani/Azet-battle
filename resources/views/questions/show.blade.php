@@ -7,8 +7,7 @@
 				<h2 class="heading">{{auth()->user()->company->name}}</h2>
 				<hr>
 
-				@foreach($questions as $question)
-					<a href="/{{$question->company_id}}/question/{{$question->id}}" title="">{{$question->name}}</a>
+
 					<div class="questionBody">
 					 	{{ $question->body }}
 					</div>
@@ -18,8 +17,68 @@
 							<p><small>{{$question->user->name}}</small></p>
 					</div>
 
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="comments col-md-12">
+				@foreach ($question->comments as $comment)
+					<div class="card mb-1 text-white bg-secondary">
+					  <div class="card-body">
+					    <p class="card-text">{{$comment->body}}</p>
+					  </div>
+					</div>
 				@endforeach
 			</div>
 		</div>
-	</div>
+
+		<hr>
+
+		<div class="row">
+			<form action="/{{$question->company_id}}/question/comment" method="POST">
+				{{csrf_field()}}
+				<input type="hidden" name="question_id" value={{$question->id}}>
+
+			    <div class="form-group">
+			      <input name='body' type="text" class="form-control"  placeholder="Add question..">
+			    </div>
+			    <button type="submit" class="btn btn-primary">Add comment</button>
+
+			</form>
+
+		</div>
+
+
+		<hr>
+
+		<div class="row">
+
+			@foreach ($question->answers as $answer)
+			  	<div class="card mb-1 text-white bg-secondary">
+				  <div class="card-body">
+				    <p class="card-text">{{$answer->body}}</p>
+				  </div>
+				</div>
+		  @endforeach
+
+		 </div>
+
+		 <div class="row">
+
+		  <form class="mb-5" action="/{{$question->company_id}}/answers" method="POST">
+			    {{csrf_field()}}
+				<input type="hidden" name="question_id" value={{$question->id}}>
+
+			    <div class="form-group">
+			      <input name='body' type="text" class="form-control"  placeholder="Add Answer">
+			    </div>
+			    <button type="submit" class="btn btn-primary">Add Answer</button>
+
+		  </form>
+
+		   </div>
+
+
+		</div>
+
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
 
 class CommentController extends Controller
 {
@@ -12,7 +13,7 @@ class CommentController extends Controller
         $this->middleware('employee');
     }
 
-    public function storeQuestion($company, uest $request)
+    public function storeQuestion($company, Request $request)
     {
         $comment = new Comment;
         $comment->user_id = auth()->user()->id;
@@ -50,7 +51,7 @@ class CommentController extends Controller
     public function destroy($company, Comment $comment)
     {
         if (auth()->user()->id() === $comment->user_id){
-            Answer::destroy($id);
+            Comment::destroy($id);
         }
     }
 }
