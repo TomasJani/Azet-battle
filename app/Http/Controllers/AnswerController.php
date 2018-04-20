@@ -40,7 +40,7 @@ class AnswerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$company)
     {
         $this->validate(request(), [
             'body' => 'required|min:5'
@@ -104,7 +104,7 @@ class AnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Answer $answer)
+    public function destroy($company,Answer $answer)
     {
 
         if (auth()->user()->id() === $answer->user_id){
